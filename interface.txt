@@ -1,0 +1,267 @@
+【seven-interface】
+
+所有json均返回result， result为1成功，为0表示失败。
+
+【entity】
+	// Student.class
+
+	private Integer studentId;
+	private String studentNo;
+	private String studentName;
+	private String studentSex;
+	private Integer studentAge;
+	private String studentPassword;
+	private Set learnings = new HashSet(0);
+
+	// Teacher.class
+
+	private Integer teacherId;
+	private String teacherNo;
+	private String teacherName;
+	private String teacherJob;
+	private Double teacherSalary;
+	private Set courses = new HashSet(0);
+
+	// Course.class
+
+	private Integer courseId;
+	private Teacher teacher;
+	private String courseNo;
+	private Integer courseScore;
+	private String courseName;
+	private Set learnings = new HashSet(0);
+
+	// Learning.class
+
+	private Integer learningId;
+	private Student student;
+	private Course course;
+	private Integer courseAchieve;
+
+【学生登录接口】
+URL：http://localhost:8080/seven/login.action
+Parameter：studentNo，studentPassword
+
+Response Example：
+{
+  "result": 1,
+  "studentId": 1,
+  "studentNo": "1308200047",
+  "studentName": "邓国雄",
+  "studentSex": "男",
+  "studentAge": 20
+}
+
+【查看学生信息接口】
+URL：http://localhost:8080/seven/show_student.action
+Parameter：studentId
+
+Response Example：
+{
+  "result": 1,
+  "studentId": 1,
+  "studentNo": "1308200047",
+  "studentName": "邓国雄",
+  "studentSex": "男",
+  "studentAge": 20,
+  "studentPassword": "123456"
+}
+
+【更新学生信息接口】
+URL：http://localhost:8080/seven/update_student.action
+Parameter：studentId，studentPassword，studentName，studentSex，studentAge
+
+Response Example：
+{
+  "result": 1
+}
+
+【学生选课接口】
+URL：http://localhost:8080/seven/select_course.action
+Parameter：studentId，courseNo
+
+Response Example：
+{
+  "result": 1
+}
+
+【查询学生选课信息接口】
+URL：http://localhost:8080/seven/show_my_course.action
+Parameter：studentId
+
+{
+  "result": 1,
+  "courseNo": [
+    "002",
+    "001"
+  ],
+  "courseName": [
+    "多媒体技术",
+    "数据库原理"
+  ],
+  "teacherName": [
+    "Airing",
+    "熊伟"
+  ],
+  "courseScore": [
+    3,
+    2
+  ]
+}
+
+【查询选修总学分接口】
+URL：http://localhost:8080/seven/show_my_scores.action
+Parameter：studentId
+
+Response Example：
+{
+  "result": 1,
+  "totalScore": 7.0
+}
+
+【添加学生接口】
+URL：http://localhost:8080/seven/add_student.action
+Parameter：studentNo，studentName，studentSex，studentAge
+
+Response Example：
+{
+  "result": 1
+}
+
+【修改学生接口】
+URL：http://localhost:8080/seven/edit_student.action
+Parameter：studentNo，studentName，studentSex，studentAge，studentPassword
+
+Response Example：
+{
+  "result": 1
+}
+
+【删除学生接口】
+URL：http://localhost:8080/seven/delete_student.action
+Parameter：studentNo
+
+Response Example：
+{
+  "result": 1
+}
+
+【添加教师接口】
+URL：http://localhost:8080/seven/add_teacher.action
+Parameter：teacherNo，teacherName，teacherJob，teacherSalary
+
+Response Example：
+{
+  "result": 1
+}
+
+【修改教师接口】
+URL：http://localhost:8080/seven/edit_teacher.action
+Parameter：teacherNo，teacherName，teacherJob，teacherSalary
+
+Response Example：
+{
+  "result": 1
+}
+
+【删除教师接口】
+URL：http://localhost:8080/seven/delete_teacher.action
+Parameter：teacherNo
+
+Response Example：
+{
+  "result": 1
+}
+
+【查询教师职位平均工资接口】
+URL：http://localhost:8080/seven/delete_teacher.action
+Parameter：null
+
+Response Example：
+{
+  "result": 1,
+  "numberOfJob1": 2,
+  "numberOfJob2": 1,
+  "numberOfJob3": 1,
+  "salaryOfJob1": 70000.0,
+  "salaryOfJob2": 3000.0,
+  "salaryOfJob3": 100.0
+}
+
+【添加课程接口】
+URL：http://localhost:8080/seven/add_course.action
+Parameter：courseNo，teacherNo，courseName，courseScore
+
+Response Example：
+{
+  "result": 1
+}
+
+【修改课程接口】
+URL：http://localhost:8080/seven/edit_course.action
+Parameter：courseNo，teacherNo，courseName，courseScore
+
+Response Example：
+{
+  "result": 1
+}
+
+【删除课程接口】
+URL：http://localhost:8080/seven/delete_course.action
+Parameter：courseNo
+
+Response Example：
+{
+  "result": 1
+}
+
+【添加成绩接口】
+URL：http://localhost:8080/seven/add_achieve.action
+Parameter：courseNo，studentNo，courseAchieve
+
+Response Example：
+{
+  "result": 1
+}
+
+【查询课程成绩接口】
+URL：http://localhost:8080/seven/add_achieve.action
+Parameter：courseNo
+
+Response Example：
+{
+  "result": 1,
+  "courseName": [
+    "多媒体技术"
+  ],
+  "studentNos": [
+    "1308200047"
+  ],
+  "studentNames": [
+    "邓国雄"
+  ],
+  "courseAchieve": [
+    99
+  ]
+}
+
+【查询每个学生总学分接口】
+URL：http://localhost:8080/seven/add_achieve.action
+Parameter：courseNo，studentNo，courseAchieve
+
+Response Example：
+{
+  "result": 1,
+  "studentNos": [
+    "1308200045",
+    "1308200047"
+  ],
+  "studentNames": [
+    "刘杰容",
+    "邓国雄"
+  ],
+  "totalScores": [
+    2,
+    7
+  ]
+}

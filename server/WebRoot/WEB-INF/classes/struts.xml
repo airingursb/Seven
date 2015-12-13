@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="login" class="com.seven.action.LoginAction">
+		</action>
+		<action name="show_student" class="com.seven.action.ShowStudentAction">
+		</action>
+		<action name="update_student" class="com.seven.action.UpdateStudentAction">
+		</action>
+		<action name="select_course" class="com.seven.action.SelectCourseAction">
+		</action>
+		<action name="show_my_course" class="com.seven.action.ShowMyCourseAction">
+		</action>	
+		<action name="show_my_scores" class="com.seven.action.ShowMyScoresAction">
+		</action>	
+
+		
+		<action name="add_student" class="com.seven.action.AddStudentAction">
+		</action>
+		<action name="edit_student" class="com.seven.action.EditStudentAction">
+		</action>
+		<action name="delete_student" class="com.seven.action.DeleteStudentAction">
+		</action>
+		
+		<action name="add_teacher" class="com.seven.action.AddTeacherAction">
+		</action>
+		<action name="edit_teacher" class="com.seven.action.EditTeacherAction">
+		</action>
+		<action name="delete_teacher" class="com.seven.action.DeleteTeacherAction">
+		</action>
+		<action name="show_teacher_job" class="com.seven.action.ShowTeacherJobAction">
+		</action>
+		
+		<action name="add_course" class="com.seven.action.AddCourseAction">
+		</action>
+		<action name="edit_course" class="com.seven.action.EditCourseAction">
+		</action>
+		<action name="delete_course" class="com.seven.action.DeleteCourseAction">
+		</action>
+		
+		<action name="add_achieve" class="com.seven.action.AddAchieveAction">
+		</action>
+		<action name="show_course_achieve" class="com.seven.action.ShowCourseAchieveAction">
+		</action>
+		<action name="show_student_scores" class="com.seven.action.ShowStudentScoresAction">
+		</action>
+	</package>
+
+</struts>    
